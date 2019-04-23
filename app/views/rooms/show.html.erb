@@ -12,10 +12,25 @@
       <% @room_messages.each do |room_message| %>
         <div class="chat-message-container">
           <div class="row no-gutters">
-            <div class="col-auto text-center">
-              <img src="<%= room_message.user.gravatar_url %>" class="avatar" alt="">
-            </div>
+            <% if current_user == room_message.user %>
+              <div class="col-auto text-center">
+                <img src="<%= room_message.user.gravatar_url %>" class="avatar" alt="">
+              </div>
 
+              <div class="col">
+                <div class="message-content">
+                  <p class="mb-1">
+                    <%= room_message.message %>
+                  </p>
+
+                  <div class="text-right">
+                    <small>
+                      <%= room_message.created_at.strftime('%Y %B %e - %H:%M') %>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            <% else %>
             <div class="col">
               <div class="message-content">
                 <p class="mb-1">
@@ -24,11 +39,16 @@
 
                 <div class="text-right">
                   <small>
-                    <%= room_message.created_at %>
+                    <%= room_message.created_at.strftime('%Y %B %e - %H:%M') %>
                   </small>
                 </div>
               </div>
             </div>
+
+            <div class="col-auto text-center">
+              <img src="<%= room_message.user.gravatar_url %>" class="avatar" alt="">
+            </div>
+            <% end %>
           </div>
         </div>
       <% end %>
