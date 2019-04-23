@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby: ```ruby-2.6.2```
 
-Things you may want to cover:
+Install Redis, run redis.
 
-* Ruby version
+on mac os
 
-* System dependencies
+```brew install redis```
 
-* Configuration
+Clone repository, ```cd rails-chat-jg```
 
-* Database creation
+```bundle install```
 
-* Database initialization
+```rails server```
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+go to localhost:3000
